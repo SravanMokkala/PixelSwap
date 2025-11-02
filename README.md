@@ -10,7 +10,6 @@ A real-time competitive puzzle game where two players race to reconstruct a sing
 - **Real-time Progress**: Poll opponent's progress every 1-2 seconds
 - **Fair Timing**: Server-authoritative timestamps ensure fair competition
 - **Keyboard Controls**: Arrow keys or WASD for navigation, Enter to swap
-- **Ghost Overlay**: Hold G key to see the target image faintly behind tiles
 - **Win Conditions**: Fastest completion time, with tiebreakers for timeout scenarios
 
 ## Tech Stack
@@ -80,14 +79,6 @@ If neither player solves within the time limit, winner is determined by:
 2. **Fewer moves** (if percent tied)
 3. **Earlier lastCorrectAt** (if moves tied)
 
-## Fairness & Anti-Cheat
-
-- **Server Timestamps**: All timing is server-authoritative (`startedAt`, `finishedAt`)
-- **Identical Seeds**: Both players compute the same starting board from the shared seed
-- **Solved Validation**: Server validates that submitted boards are actually solved
-- **Rate Limiting**: API endpoints are rate-limited (≥300ms per user)
-- **Membership Checks**: Only players assigned to a match can call its endpoints
-- **Input Guards**: Client ignores swaps faster than 80ms apart
 
 ## API Endpoints
 

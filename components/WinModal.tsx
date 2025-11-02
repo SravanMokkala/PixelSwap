@@ -86,7 +86,7 @@ export default function WinModal({
 
           {result.timeout && (
             <div className="bg-yellow-500/20 border border-yellow-500 text-yellow-200 px-4 py-2 rounded text-sm text-center">
-              Time limit reached (1 minute)
+              Time limit reached (2:30)
             </div>
           )}
 

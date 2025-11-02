@@ -30,7 +30,7 @@ export default function HUD({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  const remainingMs = 1 * 60 * 1000 - elapsed; // 1 minute for testing
+  const remainingMs = 2.5 * 60 * 1000 - elapsed; // 2:30
   const timeRemaining = Math.max(0, remainingMs);
 
   return (

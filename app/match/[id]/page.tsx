@@ -808,7 +808,7 @@ export default function MatchPage() {
     }
   }, [match?.startedAt, clientStartTime]);
 
-  // Timeout check (1 minute for testing) - backup check via interval
+  // Timeout check (2:30) - backup check via interval
   useEffect(() => {
     if (match?.status === 'active' && !gameFinished && !timeoutTriggeredRef.current) {
       const checkTimeout = setInterval(() => {
@@ -818,7 +818,7 @@ export default function MatchPage() {
         if (!actualStartTime) return; // Wait until we have a start time
         
         const elapsed = Date.now() - actualStartTime;
-        const MATCH_DURATION_MS = 1 * 60 * 1000; // 1 minute
+        const MATCH_DURATION_MS = 2.5 * 60 * 1000; // 2:30
         
         if (elapsed >= MATCH_DURATION_MS && !gameFinished && !timeoutTriggeredRef.current) {
           // Clear the interval immediately to prevent multiple triggers
@@ -918,7 +918,7 @@ export default function MatchPage() {
   // Calculate values needed for timeout check (before early returns)
   const actualStartTime = clientStartTime || (match?.startedAt ? match.startedAt + 20 * 1000 : null);
   const elapsed = actualStartTime ? Date.now() - actualStartTime : 0;
-  const MATCH_DURATION_MS = 1 * 60 * 1000; // 1 minute for testing
+  const MATCH_DURATION_MS = 2.5 * 60 * 1000; // 2:30
   const MEMORIZATION_DURATION_MS = 20 * 1000; // 20 seconds
   const memorizationEndTime = match?.startedAt ? match.startedAt + MEMORIZATION_DURATION_MS : 0;
   const gameCanStart = match?.startedAt && Date.now() >= memorizationEndTime;

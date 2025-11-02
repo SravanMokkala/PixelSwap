@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { matches, isUserInMatch, checkRateLimit, updateMatch, type MatchState } from '@/lib/state';
 import { isSolved as checkSolved } from '@/lib/scramble';
 
-const MATCH_DURATION_MS = 1 * 60 * 1000; // 1 minute (for testing)
+const MATCH_DURATION_MS = 2.5 * 60 * 1000; // 2:30
 
 function adjudicateWinner(match: MatchState) {
   if (!match.p1 || !match.p2) return null;
